@@ -1,0 +1,7 @@
+coqui-tts>=0.24.0
+runpod
+huggingface_hub
+numpy
+datasets
+soundfile
+google-cloud-storage
