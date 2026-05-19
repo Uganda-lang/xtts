@@ -27,7 +27,7 @@ else:
     snapshot_download(
         repo_id='reuben256/xtts-ug-lang',
         local_dir=LOCAL_DIR_UG,
-        allow_patterns=['best_model.pth', 'config.json'],
+        allow_patterns=['model.pth', 'config.json'],
         token=token
     )
     # Download vocab

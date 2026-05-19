@@ -24,6 +24,8 @@ def verify_and_patch(local_dir, add_lg=False, add_all=False):
     config_path = f'{local_dir}/config.json'
     
     for f in ['config.json', 'best_model.pth', 'vocab.json']:
+        if local_dir == LOCAL_DIR_UG and f == 'best_model.pth':
+            f = 'model.pth'
         path = os.path.join(local_dir, f)
         exists = os.path.exists(path)
         size = os.path.getsize(path) if exists else 0
@@ -130,7 +132,7 @@ xtts_config_ug.load_json(f'{LOCAL_DIR_UG}/config.json')
 model_ug = Xtts.init_from_config(xtts_config_ug)
 model_ug.load_checkpoint(
     xtts_config_ug,
-    checkpoint_path=f'{LOCAL_DIR_UG}/best_model.pth',
+    checkpoint_path=f'{LOCAL_DIR_UG}/model.pth',
     vocab_path=f'{LOCAL_DIR_UG}/vocab.json',
     eval=True,
     use_deepspeed=False,
